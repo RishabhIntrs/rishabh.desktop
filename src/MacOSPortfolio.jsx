@@ -3,7 +3,18 @@ import { Card } from "./components/ui/card";
 import { X, Minimize2, Square, User, Briefcase, Mail, FileText, Wifi, Battery, Volume2, Linkedin, Folder } from "lucide-react";
 
 const icons = [
-  { name: "About Me", id: "about", icon: User, color: "bg-blue-500" },
+  { 
+    name: "About Me", 
+    id: "about", 
+    icon: () => (
+      <img 
+        src="/calc.svg" 
+        alt="About Me" 
+        className="w-40 h-40"
+      />
+    ),
+    color: "bg-transparent"
+  },
   { 
     name: "Work", 
     id: "work", 
@@ -11,13 +22,47 @@ const icons = [
       <img 
         src="/folder.svg" 
         alt="Folder" 
-        className="w-30 h-35"
+        className="w-36 h-40"
       />
     ),
     color: "bg-transparent"
   },
-  { name: "Projects", id: "projects", icon: Briefcase, color: "bg-green-500" },
-  { name: "Contact", id: "contact", icon: Mail, color: "bg-yellow-500" },
+  { 
+    name: "Projects", 
+    id: "projects", 
+    icon: () => (
+      <img 
+        src="/folder.svg" 
+        alt="Projects" 
+        className="w-36 h-40"
+      />
+    ),
+    color: "bg-transparent"
+  },
+  { 
+    name: "Fun", 
+    id: "fun", 
+    icon: () => (
+      <img 
+        src="/folder.svg" 
+        alt="Fun" 
+        className="w-36 h-40"
+      />
+    ),
+    color: "bg-transparent"
+  },
+  { 
+    name: "Find Me", 
+    id: "contact", 
+    icon: () => (
+      <img 
+        src="/find.svg" 
+        alt="Find Me" 
+        className="w-50 h-50 rotate-90"
+      />
+    ),
+    color: "bg-transparent"
+  },
 ];
 
 const windowContent = {
@@ -30,17 +75,16 @@ const windowContent = {
             <User className="w-10 h-10 text-white" />
           </div>
           <div>
-            <h2 className="text-2xl font-semibold text-gray-800">John Doe</h2>
-            <p className="text-gray-600">Full Stack Developer</p>
+            <h2 className="text-2xl font-semibold text-gray-800">Rishabh Sinha</h2>
+            <p className="text-gray-600">Math and Economics, University of College London</p>
           </div>
         </div>
         <p className="text-gray-700 leading-relaxed">
-          Passionate developer with 5+ years of experience building modern web applications. 
-          I love creating intuitive user experiences and solving complex problems with clean, 
-          efficient code.
+          Second year student, interested in the intersection of technology and finance, 
+          and currently working at L'Oreal as a their Commercial Intern.
         </p>
         <div className="flex flex-wrap gap-2">
-          {["React", "Node.js", "TypeScript", "Python", "AWS"].map(skill => (
+          {["Modelling", "Analytics", "Statistics", "Python", "LaTeX", "R", "Finance", "Data Science"].map(skill => (
             <span key={skill} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">
               {skill}
             </span>
@@ -58,17 +102,17 @@ const windowContent = {
             onClick={() => window.open('/resume.pdf', '_blank')}
             className="flex flex-col items-center group"
           >
-            <div className="w-16 h-16 bg-red-500 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <FileText className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-transparent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <img src="/pdf.svg" alt="PDF" className="w-40 h-40" />
             </div>
-            <span className="text-sm text-gray-700 mt-2">Resume.pdf</span>
+            <span className="text-sm text-gray-700 mt-2">Resume</span>
           </button>
           <button
             onClick={() => window.open('https://www.linkedin.com/in/rishabh-sinha-b4309a180', '_blank')}
             className="flex flex-col items-center group"
           >
-            <div className="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Linkedin className="w-8 h-8 text-white" />
+            <div className="w-16 h-16 bg-transparent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <img src="/linkedin.svg" alt="LinkedIn" className="w-40 h-40" />
             </div>
             <span className="text-sm text-gray-700 mt-2">LinkedIn</span>
           </button>
@@ -94,6 +138,24 @@ const windowContent = {
       </div>
     )
   },
+  fun: {
+    title: "Fun",
+    content: (
+      <div className="p-4">
+        <div className="grid grid-cols-4 gap-4">
+          <button
+            onClick={() => window.open('https://rishabh365.weebly.com/', '_blank')}
+            className="flex flex-col items-center group"
+          >
+            <div className="w-20 h-20 bg-transparent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <img src="/photos.svg" alt="Posters" className="w-40 h-40" />
+            </div>
+            <span className="text-sm text-gray-700 mt-2">Posters</span>
+          </button>
+        </div>
+      </div>
+    )
+  },
   contact: {
     title: "Contact",
     content: (
@@ -104,15 +166,15 @@ const windowContent = {
         <div className="space-y-3">
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
             <Mail className="w-5 h-5 text-blue-500" />
-            <span className="text-gray-700">john.doe@email.com</span>
+            <span className="text-gray-700">rishabhsinhaspace@gmail.com</span>
           </div>
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
-            <div className="w-5 h-5 bg-black rounded text-white flex items-center justify-center text-xs font-bold">in</div>
-            <span className="text-gray-700">linkedin.com/in/johndoe</span>
+            <div className="w-5 h-5 bg-green-500 rounded text-white flex items-center justify-center text-xs font-bold">sp</div>
+            <span className="text-gray-700">sptfy.com/Qbnp</span>
           </div>
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer">
-            <div className="w-5 h-5 bg-gray-800 rounded text-white flex items-center justify-center text-xs">gh</div>
-            <span className="text-gray-700">github.com/johndoe</span>
+            <div className="w-5 h-5 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded text-white flex items-center justify-center text-xs font-bold">ig</div>
+            <span className="text-gray-700">instagram.com/rishabh2k_</span>
           </div>
         </div>
       </div>
@@ -144,6 +206,74 @@ const windowContent = {
     )
   }
 };
+
+function AnimatedDonut() {
+  const [output, setOutput] = useState("");
+  const [t, setT] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const width = 30;
+      const height = 15;
+      const buffer = Array.from({ length: height }, () => Array(width).fill(" "));
+      const R1 = 1, R2 = 2, K2 = 5;
+      const K1 = height * K2 * 3 / (8 * (R1 + R2));
+
+      // Rotate on all axes
+      const A = t * 0.07;  // Rotate on y-axis
+      const B = t * 0.03;  // Rotate on x/z axes
+
+      const cosA = Math.cos(A), sinA = Math.sin(A);
+      const cosB = Math.cos(B), sinB = Math.sin(B);
+
+      for (let theta = 0; theta < 2 * Math.PI; theta += 0.07) {
+        const cosTheta = Math.cos(theta), sinTheta = Math.sin(theta);
+        
+        for (let phi = 0; phi < 2 * Math.PI; phi += 0.02) {
+          const cosPhi = Math.cos(phi), sinPhi = Math.sin(phi);
+          
+          // 3D coordinates
+          const x = R2 + R1 * cosTheta;
+          const y = R1 * sinTheta;
+          
+          // 3D rotation
+          const x1 = x * (cosB * cosPhi + sinA * sinB * sinPhi) - y * cosA * sinB;
+          const y1 = x * (sinB * cosPhi - sinA * cosB * sinPhi) + y * cosA * cosB;
+          const z1 = K2 + cosA * x * sinPhi + y * sinA;
+          const ooz = 1 / z1;
+          
+          // Projection
+          const xp = Math.round(width / 2 + K1 * ooz * x1);
+          const yp = Math.round(height / 2 - K1 * ooz * y1);
+          
+          // Luminance
+          const L = cosPhi * cosTheta * sinB - cosA * cosTheta * sinPhi - sinA * sinTheta + cosB * (cosA * sinTheta - cosTheta * sinA * sinPhi);
+          
+          if (L > 0 && xp >= 0 && xp < width && yp >= 0 && yp < height) {
+            const luminanceIndex = Math.floor(L * 8);
+            const chars = ".,-~:;=!*#$@";
+            if (ooz > buffer[yp][xp].charCodeAt(0) / 255) {
+              buffer[yp][xp] = chars[luminanceIndex];
+            }
+          }
+        }
+      }
+      
+      setOutput(buffer.map(row => row.join("")).join("\n"));
+      setT(prevT => prevT + 1);
+    }, 50);
+
+    return () => clearInterval(interval);
+  }, [t]);
+
+  return (
+    <div className="fixed right-4 top-12 p-2">
+      <pre className="text-purple-400 font-mono text-[8px] leading-[8px] whitespace-pre">
+        {output}
+      </pre>
+    </div>
+  );
+}
 
 export default function MacOSPortfolio() {
   const [openWindows, setOpenWindows] = useState({});
@@ -256,6 +386,7 @@ export default function MacOSPortfolio() {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/wallpaper.jpg)' }}>
+      <AnimatedDonut />
       <div className="fixed top-0 left-0 right-0 h-7 bg-black bg-opacity-20 backdrop-blur-sm flex items-center justify-between px-4 text-white text-sm z-50">
         <div className="flex items-center gap-4">
           <div className="w-4 h-4 bg-white rounded-sm opacity-80"></div>
@@ -285,10 +416,10 @@ export default function MacOSPortfolio() {
               }}
               onMouseDown={(e) => handleIconDragStart(e, icon.id)}
             >
-              <div className={`w-12 h-12 ${icon.color} rounded-xl shadow-lg flex items-center justify-center group-hover:scale-110 transition-all duration-200 group-active:scale-95 hover:shadow-xl ${draggedIcon === icon.id ? 'ring-2 ring-white ring-opacity-50' : ''}`}>
-                <IconComponent className={`w-6 h-6`} />
+              <div className={`w-16 h-16 ${icon.color} rounded-xl shadow-lg flex items-center justify-center group-hover:scale-110 transition-all duration-200 group-active:scale-95 hover:shadow-xl ${draggedIcon === icon.id ? 'ring-2 ring-white ring-opacity-50' : ''}`}>
+                <IconComponent className={`w-8 h-8`} />
               </div>
-              <span className="text-white text-xs mt-2 font-medium group-hover:text-gray-200 text-center leading-tight drop-shadow-lg">
+              <span className="text-white text-sm mt-2 font-medium group-hover:text-gray-200 text-center leading-tight drop-shadow-lg">
                 {icon.name}
               </span>
             </button>
