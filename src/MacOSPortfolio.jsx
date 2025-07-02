@@ -81,7 +81,7 @@ const windowContent = {
         </div>
         <p className="text-gray-700 leading-relaxed">
           Second year student, interested in the intersection of technology and finance, 
-          and currently working at L'Oreal as a their Commercial Intern.
+          and currently working at L'Oreal as their RGM Summer Intern.
         </p>
         <div className="flex flex-wrap gap-2">
           {["Modelling", "Analytics", "Statistics", "Python", "LaTeX", "R", "Finance", "Data Science"].map(skill => (
@@ -116,6 +116,15 @@ const windowContent = {
             </div>
             <span className="text-sm text-gray-700 mt-2">LinkedIn</span>
           </button>
+          <button
+            onClick={() => window.open('https://github.com/RishabhIntrs', '_blank')}
+            className="flex flex-col items-center group"
+          >
+            <div className="w-16 h-16 bg-transparent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+              <img src="/github.svg" alt="GitHub" className="w-40 h-40" />
+            </div>
+            <span className="text-sm text-gray-700 mt-2">GitHub</span>
+          </button>
         </div>
       </div>
     )
@@ -125,9 +134,8 @@ const windowContent = {
     content: (
       <div className="space-y-4">
         {[
-          { name: "E-commerce Platform", tech: "React, Node.js, MongoDB", desc: "Full-stack e-commerce solution with payment integration" },
-          { name: "Task Management App", tech: "Vue.js, Express, PostgreSQL", desc: "Collaborative project management tool" },
-          { name: "Weather Dashboard", tech: "React, D3.js, API Integration", desc: "Interactive weather visualization dashboard" }
+          { name: "Gerrymandering Simulation", tech: "LaTex, R, Python", desc: "Monte Carlo Simulation of Gerrymandering" },
+          { name: "MacOS Portfolio Website", tech: "Vite, React, JavaScript", desc: "MacOs Inspired Portfolio Website" },
         ].map((project, i) => (
           <div key={i} className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
             <h4 className="font-medium text-gray-800">{project.name}</h4>
