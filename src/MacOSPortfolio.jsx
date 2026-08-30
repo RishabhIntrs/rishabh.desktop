@@ -76,12 +76,11 @@ const windowContent = {
           </div>
           <div>
             <h2 className="text-2xl font-semibold text-gray-800">Rishabh Sinha</h2>
-            <p className="text-gray-600">Math and Economics, University of College London</p>
+            <p className="text-gray-600">Financial Mathematics, London School of Economics</p>
           </div>
         </div>
         <p className="text-gray-700 leading-relaxed">
-          Second year student, interested in the intersection of technology and finance, 
-          and currently working at L'Oreal as their RGM Summer Intern.
+          Masters student, interested in the intersection of technology and finance.
         </p>
         <div className="flex flex-wrap gap-2">
           {["Modelling", "Analytics", "Statistics", "Python", "LaTeX", "R", "Finance", "Data Science"].map(skill => (
@@ -136,6 +135,7 @@ const windowContent = {
         {[
           { name: "Gerrymandering Simulation", tech: "LaTex, R, Python", desc: "Monte Carlo Simulation of Gerrymandering" },
           { name: "MacOS Portfolio Website", tech: "Vite, React, JavaScript", desc: "MacOs Inspired Portfolio Website" },
+          { name: "Limit Order Book Analytics Engine ", tech: "Python", desc: "Reconstructed historic limit order books" },
         ].map((project, i) => (
           <div key={i} className="p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
             <h4 className="font-medium text-gray-800">{project.name}</h4>
